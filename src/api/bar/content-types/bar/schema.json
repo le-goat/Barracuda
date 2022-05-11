@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bars",
+  "info": {
+    "singularName": "bar",
+    "pluralName": "bars",
+    "displayName": "Bar"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "gps_position": {
+      "type": "json"
+    },
+    "contact": {
+      "type": "enumeration",
+      "enum": [
+        "telephone",
+        "mail",
+        "adresse"
+      ]
+    },
+    "bar_id": {
+      "type": "uid"
+    }
+  }
+}
