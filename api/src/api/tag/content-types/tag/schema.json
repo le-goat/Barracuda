@@ -19,6 +19,12 @@
     },
     "color": {
       "type": "string"
+    },
+    "bars": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::bar.bar",
+      "inversedBy": "tags"
     }
   }
 }

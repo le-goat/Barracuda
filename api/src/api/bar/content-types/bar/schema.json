@@ -4,7 +4,8 @@
   "info": {
     "singularName": "bar",
     "pluralName": "bars",
-    "displayName": "Bar"
+    "displayName": "Bar",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -27,6 +28,15 @@
     },
     "bar_id": {
       "type": "uid"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "bars"
     }
   }
 }

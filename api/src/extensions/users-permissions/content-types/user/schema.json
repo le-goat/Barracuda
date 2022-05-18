@@ -63,7 +63,7 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "fk_bar_list_favoris": {
+    "fk_bar_list_favorites": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::bar.bar"
