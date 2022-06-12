@@ -1,3 +1,5 @@
+// Image
+
 import {View} from "react-native";
 
 const BarPreview = () => {
