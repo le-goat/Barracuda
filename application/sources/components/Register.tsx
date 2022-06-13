@@ -1,3 +1,5 @@
+// Un formulaire qui envoie la requête pour créer un utilisateur
+
 import {View} from "react-native";
 
 const Register = () => {

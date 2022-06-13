@@ -1,4 +1,7 @@
 // TextInput, Button
+
+// Le formulaire de connexion -> vers la homepage
+
 import {View} from "react-native";
 
 const Login = () => {

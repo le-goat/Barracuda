@@ -8,3 +8,5 @@
 // GetUserInfos(user_id) -> Montrer à l'utilisateur ces informations personnelles
 
 // GetTags() -> Pour proposer les tags lors de la recherche ou lors de la création d'un bar
+
+// LogIn(username, psw) sous forme de Json

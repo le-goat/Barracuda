@@ -1,0 +1,1 @@
+// On affiche toutes les informations de l'utilisateur (un lien pour ces favoris)

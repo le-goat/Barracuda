@@ -1,0 +1,1 @@
+// La page du bar -> On affiche toutes les infos qu'on a sur le bar
