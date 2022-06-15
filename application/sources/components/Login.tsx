@@ -2,7 +2,7 @@
 
 // Le formulaire de connexion -> vers la homepage
 
-import {View} from "react-native";
+import {Text, TextInput, TouchableOpacity, View} from "react-native";
 import {useState} from "react";
 import React from "react";
 import {loginUser} from "../requests/Read";
@@ -10,48 +10,29 @@ import {loginUser} from "../requests/Read";
 const Login = () => {
     const [emailField, setEmailValue] = useState('');
     const [passwordField, setPasswordValue] = useState('');
+    const onPress = () => loginUser(emailField, passwordField)
 
-    const handleEmailField = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEmailValue(e.target.value);
-    };
-
-    const handlePasswordField = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setPasswordValue(e.target.value);
-    };
-
-    function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
-        event.preventDefault();
-        loginUser(emailField, passwordField)
-    }
     return (
         <View
-            style={{
-
-            }}
-        >
-            <div id="form_login">
-                <form onSubmit={handleSubmit}>
-                    <h2>Connexion</h2>
-                    <input type="text"
-                           placeholder="Email"
-                           onChange={handleEmailField}
-                    />
-                    <br/>
-                    <input type="password"
-                           placeholder="Password"
-                           onChange={handlePasswordField}
-                    />
-                    <div>
-                        <button id="button_form_login">Connexion</button>
-                        <div>
-                            <button id="button_form_register">Créer un compte</button>
-                        </div>
-                    </div>
-
-                </form>
-            </div>
+            style={{}}>
+            <TextInput
+                placeholder="username or email"
+                onChangeText={(emailField) => setEmailValue(emailField)}
+            />
+            <TextInput
+                placeholder="password"
+                secureTextEntry={true}
+                onChangeText={(passwordField) => setPasswordValue(passwordField)}
+            />
+            <TouchableOpacity onPress={onPress}>
+                <Text>Connexion</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+                <Text>Se créer un compte</Text>
+            </TouchableOpacity>
         </View>
     )
+
 }
 
 export default Login;
