@@ -1,10 +1,19 @@
 // Un formulaire qui envoie la requête pour créer un utilisateur
 
-import React, {useState} from "react";
+import React, {FunctionComponent, useState} from "react";
 import {Image, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {createAUser} from "../requests/Create";
+import {NavigationProp} from "@react-navigation/native";
+import {RootStackParamList} from "../../RootStackParamList";
 
-const Register = () => {
+
+type Props = {
+    navigation: NavigationProp<RootStackParamList>;
+
+}
+
+
+const Register : FunctionComponent<Props> = ({navigation}) => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -42,7 +51,11 @@ const Register = () => {
                 >Valider</Text>
             </TouchableOpacity>
             <TouchableOpacity
-                style={styles.touchableopacity2}>
+                style={styles.touchableopacity2}
+                onPress={() =>
+                navigation.navigate('Login')
+
+            }>
                 <Text
                     style={styles.touchabletext}
                 >← Retourner à la page de connexion ←</Text>
