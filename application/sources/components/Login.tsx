@@ -43,6 +43,9 @@ const Login = () => {
                     />
                     <div>
                         <button id="button_form_login">Connexion</button>
+                        <div>
+                            <button id="button_form_register">Créer un compte</button>
+                        </div>
                     </div>
 
                 </form>
