@@ -1,4 +1,5 @@
 export type RootStackParamList = {
     HomePage:  { name: string};
-    LoginRegister: undefined;
+    Login: undefined;
+    Register: undefined;
 }

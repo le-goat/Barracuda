@@ -11,10 +11,9 @@ import {RootStackParamList} from "../../RootStackParamList";
 
 type Props = {
     navigation: NavigationProp<RootStackParamList>;
-    route: RouteProp<RootStackParamList, 'LoginRegister'>
 }
 
-export const HomePage: FunctionComponent<Props> = ({navigation, route}) => {
+export const HomePage: FunctionComponent<Props> = ({navigation}) => {
     return (
         <View style={styles.container}>
 
@@ -25,7 +24,7 @@ export const HomePage: FunctionComponent<Props> = ({navigation, route}) => {
                     title="Login"
 
                     onPress={() =>
-                        navigation.navigate('LoginRegister')
+                        navigation.navigate('Login')
 
                     }/>
             </View>

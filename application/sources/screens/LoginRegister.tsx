@@ -5,6 +5,7 @@ export const LoginRegister = () => {
     return(
         <View>
             {Login()}
+
         </View>
 
     )

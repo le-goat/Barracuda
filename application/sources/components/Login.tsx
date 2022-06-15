@@ -1,16 +1,25 @@
-// TextInput, Button
+// TextInpwut, Button
 
 // Le formulaire de connexion -> vers la homepage
 
 import {StyleSheet, Text, TextInput, TouchableOpacity, View, Image} from "react-native";
-import {useState} from "react";
+import {FunctionComponent, useState} from "react";
 import React from "react";
 import {loginUser} from "../requests/Read";
+import {NavigationProp, RouteProp} from "@react-navigation/native";
+import {RootStackParamList} from "../../RootStackParamList";
 
-const Login = () => {
+type Props = {
+    navigation: NavigationProp<RootStackParamList>;
+
+}
+
+const Login : FunctionComponent<Props> = ({navigation}) => {
     const [emailField, setEmailValue] = useState('');
     const [passwordField, setPasswordValue] = useState('');
     const onPress = () => loginUser(emailField, passwordField)
+
+
 
     return (
         <View
@@ -37,6 +46,10 @@ const Login = () => {
                     Connexion</Text>
             </TouchableOpacity>
             <TouchableOpacity
+                onPress={() =>
+                    navigation.navigate('Register')
+
+                }
                 style={styles.touchableopacity2}>
                 <Text
                     style={styles.touchabletext}>
