@@ -1,1 +1,11 @@
-// La page qui charge le formulaire de connexion ou bien celui de création de compte si l'utilisateur n'a pas encore de profile
+import Login from "../components/Login";
+import {View} from "react-native";
+
+export const LoginRegister = () => {
+    return(
+        <View>
+            {Login()}
+        </View>
+
+    )
+}

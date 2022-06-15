@@ -6,6 +6,7 @@ import React from "react";
 const ResearchButton = () => {
     const [text, onChangeText] = React.useState("");
 
+
     return (
         <View>
             <TextInput
@@ -15,6 +16,9 @@ const ResearchButton = () => {
                 value={text}
 
             />
+
+
+
         </View>
     )
 }
