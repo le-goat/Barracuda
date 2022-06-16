@@ -36,6 +36,7 @@ export const getAUser = (token: string) => {
             },
         })
         .then((response) => {
+            console.log(JSON.stringify(response.data))
             return response.data;
         })
         .catch((error) => {
