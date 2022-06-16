@@ -14,16 +14,6 @@ type Props = {
 export const HomePage: FunctionComponent<Props> = ({navigation}) => {
     return (
         <View style={styles.container}>
-            <View
-                style={styles.viewbutton}>
-                <Button
-                    title="Login"
-
-                    onPress={() =>
-                        navigation.navigate('Login')
-
-                    }/>
-            </View>
 
 
             <ResearchButton/>

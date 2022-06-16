@@ -16,12 +16,15 @@ type Props = {
 const Login : FunctionComponent<Props> = ({navigation}) => {
     const [emailField, setEmailValue] = useState('');
     const [passwordField, setPasswordValue] = useState('');
-    const [token, setToken] = useState('t');
+    const [token, setToken] = useState('');
     const onPress = () => {
     loginUser(emailField,passwordField)
         .then(response => {
             setToken(response);
             console.log(token)
+            if(token.length == 137){
+                navigation.navigate('HomePage')
+            }
         })
     }
 
