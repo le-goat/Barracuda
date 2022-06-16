@@ -4,7 +4,7 @@ import {Text, TextInput, TouchableOpacity, View} from "react-native";
 
 
 const EditProfile= () => {
-    const data = getAUser('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjU1MzYxMzk4LCJleHAiOjE2NTc5NTMzOTh9.EFP9J7Jk-s0Z4R9XbXINTFPA1xRJ1RrzmVSwSB_DkSg');
+    const data = getAUser('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU1NDA5NjI1LCJleHAiOjE2NTgwMDE2MjV9.4aHhPAsQ5f-AnHDAr7qHeqQ2Dz6GfRD5I5JG2gGKln4');
     const [usernameField, setUsernameField] = useState('');
     const [emailField, setEmailValue] = useState('');
     const [stateTextInput, setStateTextInput] = useState(false)

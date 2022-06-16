@@ -8,7 +8,6 @@ import React from "react";
 import {loginUser} from "../requests/Read";
 import {NavigationProp} from "@react-navigation/native";
 import {RootStackParamList} from "../../RootStackParamList";
-
 type Props = {
     navigation: NavigationProp<RootStackParamList>;
 
@@ -25,7 +24,6 @@ const Login : FunctionComponent<Props> = ({navigation}) => {
             console.log(token)
         })
     }
-
 
     return (
         <View
