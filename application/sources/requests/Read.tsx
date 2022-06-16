@@ -1,3 +1,4 @@
+import {Bar} from "../types/bar";
 
 // GetBar(bar_id) -> Pour le chargement de la page BarInfos
 
@@ -26,3 +27,14 @@ export const loginUser = (user: string, password:string) => {
             console.log('An error occurred:', error.response);
         });
 };
+
+export const getBar = (bar_id: number): Promise<Bar> => {
+    return axios
+        .get("http://localhost:1337/api/auth/bar/" + bar_id)
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            console.log('An error occurred:', error.response);
+        })
+}
