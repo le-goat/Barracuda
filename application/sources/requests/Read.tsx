@@ -20,7 +20,7 @@ export const loginUser = (user: string, password:string) => {
             password: password
         })
         .then((response) => {
-                console.log(response.data.user)
+                return response.data.jwt;
             }
         )
         .catch((error) => {
@@ -28,9 +28,24 @@ export const loginUser = (user: string, password:string) => {
         });
 };
 
+export const getAUser = (token: string) => {
+    return axios
+        .get('http://localhost:1337/api/users/me',{
+            headers: {
+                Authorization:`Bearer ${token}`,
+            },
+        })
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            console.log('An error occured', error.response);
+        })
+}
+
 export const getBar = (bar_id: number): Promise<Bar> => {
     return axios
-        .get("http://localhost:1337/api/auth/bar/" + bar_id)
+        .get("http://localhost:1337/api/bars/" + bar_id)
         .then((response) => {
             return response.data;
         })

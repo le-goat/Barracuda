@@ -6,7 +6,7 @@ import {StyleSheet, Text, TextInput, TouchableOpacity, View, Image} from "react-
 import {FunctionComponent, useState} from "react";
 import React from "react";
 import {loginUser} from "../requests/Read";
-import {NavigationProp, RouteProp} from "@react-navigation/native";
+import {NavigationProp} from "@react-navigation/native";
 import {RootStackParamList} from "../../RootStackParamList";
 
 type Props = {
@@ -17,9 +17,10 @@ type Props = {
 const Login : FunctionComponent<Props> = ({navigation}) => {
     const [emailField, setEmailValue] = useState('');
     const [passwordField, setPasswordValue] = useState('');
-    const onPress = () => loginUser(emailField, passwordField)
-
-
+    const onPress = () => {
+        console.log(loginUser(emailField,passwordField));
+        console.log(emailField, passwordField)
+    }
 
     return (
         <View

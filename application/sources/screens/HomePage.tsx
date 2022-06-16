@@ -1,13 +1,11 @@
-import {StyleSheet, View, Button, Image} from "react-native";
+import {StyleSheet, View, Button} from "react-native";
 import ResearchButton from "../components/ResearchButton";
 import {FunctionComponent} from "react";
-import {NavigationContainer, NavigationProp, RouteProp} from "@react-navigation/native";
+import {NavigationProp} from "@react-navigation/native";
 import Login from "../components/Login";
 import {StatusBar} from "expo-status-bar";
 import * as React from "react";
-import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {RootStackParamList} from "../../RootStackParamList";
-
 
 type Props = {
     navigation: NavigationProp<RootStackParamList>;
@@ -16,7 +14,6 @@ type Props = {
 export const HomePage: FunctionComponent<Props> = ({navigation}) => {
     return (
         <View style={styles.container}>
-
 
             <View
                 style={styles.viewbutton}>
