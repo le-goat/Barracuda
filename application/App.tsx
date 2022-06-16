@@ -6,6 +6,7 @@ import {HomePage} from "./sources/screens/HomePage";
 import Login from "./sources/components/Login";
 import Register from "./sources/components/Register";
 import {ResultsList} from "./sources/screens/ResultsList";
+import EditProfile from "./sources/components/EditProfile";
 
 
 const Stack = createNativeStackNavigator()
@@ -21,6 +22,7 @@ export default function App() {
                 <Stack.Screen name="Register" component={Register}/>
                 <Stack.Screen name="HomePage" component={HomePage}/>
                 <Stack.Screen name="ResultsList" component={ResultsList}/>
+                <Stack.Screen name="EditProfile" component={EditProfile}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
