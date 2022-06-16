@@ -17,10 +17,15 @@ type Props = {
 const Login : FunctionComponent<Props> = ({navigation}) => {
     const [emailField, setEmailValue] = useState('');
     const [passwordField, setPasswordValue] = useState('');
+    const [token, setToken] = useState('t');
     const onPress = () => {
-        console.log(loginUser(emailField,passwordField));
-        console.log(emailField, passwordField)
+    loginUser(emailField,passwordField)
+        .then(response => {
+            setToken(response);
+            console.log(token)
+        })
     }
+
 
     return (
         <View

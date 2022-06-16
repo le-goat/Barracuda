@@ -6,11 +6,12 @@ import Login from "../components/Login";
 import {StatusBar} from "expo-status-bar";
 import * as React from "react";
 import {RootStackParamList} from "../../RootStackParamList";
+import {updateAUser} from "../requests/Update";
 
 type Props = {
     navigation: NavigationProp<RootStackParamList>;
 }
-
+updateAUser('oliviera','georgeon@gmail.com','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjU1MzYxMzk4LCJleHAiOjE2NTc5NTMzOTh9.EFP9J7Jk-s0Z4R9XbXINTFPA1xRJ1RrzmVSwSB_DkSg')
 export const HomePage: FunctionComponent<Props> = ({navigation}) => {
     return (
         <View style={styles.container}>
