@@ -47,14 +47,6 @@
                                               "type": "string"
                                             },
                                             "gps_position": {},
-                                            "contact": {
-                                              "type": "string",
-                                              "enum": [
-                                                "telephone",
-                                                "mail",
-                                                "adresse"
-                                              ]
-                                            },
                                             "bar_id": {
                                               "type": "string"
                                             },
@@ -407,6 +399,15 @@
                                                   }
                                                 }
                                               }
+                                            },
+                                            "price": {
+                                              "type": "integer"
+                                            },
+                                            "image": {
+                                              "type": "string"
+                                            },
+                                            "contact": {
+                                              "type": "string"
                                             },
                                             "createdAt": {
                                               "type": "string",
@@ -817,14 +818,6 @@
                                             "type": "string"
                                           },
                                           "gps_position": {},
-                                          "contact": {
-                                            "type": "string",
-                                            "enum": [
-                                              "telephone",
-                                              "mail",
-                                              "adresse"
-                                            ]
-                                          },
                                           "bar_id": {
                                             "type": "string"
                                           },
@@ -1177,6 +1170,15 @@
                                                 }
                                               }
                                             }
+                                          },
+                                          "price": {
+                                            "type": "integer"
+                                          },
+                                          "image": {
+                                            "type": "string"
+                                          },
+                                          "contact": {
+                                            "type": "string"
                                           },
                                           "createdAt": {
                                             "type": "string",
@@ -1560,14 +1562,6 @@
                                             "type": "string"
                                           },
                                           "gps_position": {},
-                                          "contact": {
-                                            "type": "string",
-                                            "enum": [
-                                              "telephone",
-                                              "mail",
-                                              "adresse"
-                                            ]
-                                          },
                                           "bar_id": {
                                             "type": "string"
                                           },
@@ -1920,6 +1914,15 @@
                                                 }
                                               }
                                             }
+                                          },
+                                          "price": {
+                                            "type": "integer"
+                                          },
+                                          "image": {
+                                            "type": "string"
+                                          },
+                                          "contact": {
+                                            "type": "string"
                                           },
                                           "createdAt": {
                                             "type": "string",
@@ -2239,14 +2242,6 @@
                                             "type": "string"
                                           },
                                           "gps_position": {},
-                                          "contact": {
-                                            "type": "string",
-                                            "enum": [
-                                              "telephone",
-                                              "mail",
-                                              "adresse"
-                                            ]
-                                          },
                                           "bar_id": {
                                             "type": "string"
                                           },
@@ -2599,6 +2594,15 @@
                                                 }
                                               }
                                             }
+                                          },
+                                          "price": {
+                                            "type": "integer"
+                                          },
+                                          "image": {
+                                            "type": "string"
+                                          },
+                                          "contact": {
+                                            "type": "string"
                                           },
                                           "createdAt": {
                                             "type": "string",

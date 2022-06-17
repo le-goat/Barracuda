@@ -6,5 +6,4 @@ export type RootStackParamList = {
     Register: undefined;
     EditProfile: undefined;
     Bar: {infos: Bar};
-    // Results: undefined;
 }

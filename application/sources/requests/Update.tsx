@@ -1,12 +1,8 @@
-
-// UpdateFavoris(user_id, bar_id) -> Quand l'utilisateur ajoute un favoris
-
-// UpdateNote(bar_id, note) -> Quand l'utilisateur donne une note
 import axios from "axios";
 
-export const updateAUser = (newUsername:string, newEmail:string, token:string, id:string) => {
+export const updateAUser = (newUsername:string, newEmail:string, id:string, token:string) => {
     return axios
-        .put('http://localhost:1337/api/users/' + id, {
+        .put('http://192.168.208.25:1337/api/users/' + id, {
             headers: {
                 Authorization:`Bearer ${token}`,
             },

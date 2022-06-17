@@ -1,13 +1,12 @@
-// TextInpwut, Button
-
-// Le formulaire de connexion -> vers la homepage
-
 import {StyleSheet, Text, TextInput, TouchableOpacity, View, Image} from "react-native";
 import {FunctionComponent, useState} from "react";
 import React from "react";
-import {loginUser} from "../requests/Read";
+import {getValueFor, loginUser} from "../requests/Read";
 import {NavigationProp} from "@react-navigation/native";
 import {RootStackParamList} from "../../RootStackParamList";
+
+
+
 
 type Props = {
     navigation: NavigationProp<RootStackParamList>;
@@ -17,17 +16,20 @@ type Props = {
 const Login : FunctionComponent<Props> = ({navigation}) => {
     const [emailField, setEmailValue] = useState('');
     const [passwordField, setPasswordValue] = useState('');
-    const [token, setToken] = useState('');
+
     const onPress = () => {
-    loginUser(emailField,passwordField)
-        .then(response => {
-            setToken(response);
-            console.log(token)
-            if(token.length == 137){
-                navigation.navigate('HomePage')
+        loginUser(emailField,passwordField)
+        getValueFor('token')
+            .then(response => {
+                if(response == 'No Token')
+                {
+                    alert('Mot de passe ou nom d\'utilisateur erroné');
+                }
+                else{
+                     navigation.navigate('HomePage');
+                }
+            })
             }
-        })
-    }
 
     return (
         <View

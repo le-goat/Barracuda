@@ -1,5 +1,5 @@
 import React, {FunctionComponent, useEffect, useState} from "react";
-import {getAUser} from "../requests/Read";
+import {getAUser, getValueFor, save} from "../requests/Read";
 import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {NavigationProp} from "@react-navigation/native";
 import {RootStackParamList} from "../../RootStackParamList";
@@ -13,34 +13,54 @@ type Props = {
 
 
 const EditProfile : FunctionComponent<Props> = ({navigation}) => {
-    const data = getAUser('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiaWF0IjoxNjU1NDUxNDY5LCJleHAiOjE2NTgwNDM0Njl9.Yj5Amqo13caFZscJm6dyDyxhL2aU4aS9hdfcXb2YXGg');
     const [usernameField, setUsernameField] = useState('');
     const [emailField, setEmailValue] = useState('');
     const [userId, setUserId] = useState('');
     const [stateTextInput, setStateTextInput] = useState(false)
 
-    useEffect(() => {
-        data.then(response => {
-            setUsernameField(response.username);
-            setEmailValue(response.email);
-            setUserId(response.id);
-            console.log(response.id);
-        })
-    }, []
+    useEffect( () => {
+            getValueFor('token')
+                .then(response => {
+                    if(response){
+                        getAUser(response)
+                            .then(response => {
+                                setUsernameField(response.username);
+                                setEmailValue(response.email);
+                                setUserId(response.id);
+                            })
+                    }
+                    })
+        }, []
     )
 
 
     const EnableTextInput = () => {
         setStateTextInput(true);
     }
+
     const Confirm = () => {
-        updateAUser(usernameField, emailField, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiaWF0IjoxNjU1NDUxNDY5LCJleHAiOjE2NTgwNDM0Njl9.Yj5Amqo13caFZscJm6dyDyxhL2aU4aS9hdfcXb2YXGg', userId )
-        navigation.navigate('HomePage')
+        getValueFor('token')
+            .then(response => {
+                if (response) {
+                    updateAUser(usernameField, emailField, userId, response)
+                    alert('Votre compte a bien été  modifié')
+                    navigation.navigate('HomePage')
+                }
+            })
     }
+
     const Delete = () => {
-        deleteAUser(userId,'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiaWF0IjoxNjU1NDUxNDY5LCJleHAiOjE2NTgwNDM0Njl9.Yj5Amqo13caFZscJm6dyDyxhL2aU4aS9hdfcXb2YXGg')
-        navigation.navigate('Login')
+        getValueFor('token')
+            .then(response => {
+                if(response){
+                    deleteAUser(userId, response)
+                    alert('Votre compte a bien été supprimé')
+                    save('token', 'No Token')
+                    navigation.navigate('Login')
+                }
+            })
     }
+
     return (
         <View
             style={styles.container}

@@ -1,13 +1,11 @@
-import {StyleSheet, View, Button, TouchableOpacity, Text, Image, ImageBackground} from "react-native";
+import {StyleSheet, View, TouchableOpacity, ImageBackground} from "react-native";
 import ResearchButton from "../components/ResearchButton";
 import {FunctionComponent} from "react";
 import {NavigationProp} from "@react-navigation/native";
-import Login from "../components/Login";
 import {StatusBar} from "expo-status-bar";
 import * as React from "react";
 import {RootStackParamList} from "../../RootStackParamList";
 import EditProfile from "../components/EditProfile";
-import BarPreview from "../components/BarPreview";
 import {ResultsList} from "./ResultsList";
 
 type Props = {
