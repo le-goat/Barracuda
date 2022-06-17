@@ -7,6 +7,7 @@ import {StatusBar} from "expo-status-bar";
 import * as React from "react";
 import {RootStackParamList} from "../../RootStackParamList";
 import EditProfile from "../components/EditProfile";
+import BarPreview from "../components/BarPreview";
 
 type Props = {
     navigation: NavigationProp<RootStackParamList>;
@@ -17,7 +18,9 @@ export const HomePage: FunctionComponent<Props> = ({navigation}) => {
         <View style={styles.container}>
 
 
-            <ResearchButton/>
+            <View style={styles.viewResearchButton}>
+                <ResearchButton/>
+            </View>
             <View
                 style={styles.viewButtonProfile}>
                 <TouchableOpacity
@@ -33,6 +36,14 @@ export const HomePage: FunctionComponent<Props> = ({navigation}) => {
             </View>
 
 
+            <View style={styles.viewBarPreview}>
+                <BarPreview id={1}/>
+                <BarPreview id={1}/>
+                <BarPreview id={1}/>
+
+            </View>
+
+
             <StatusBar style="auto"/>
         </View>
 
@@ -44,8 +55,12 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
+    },
+    viewResearchButton : {
+        alignSelf: 'center',
+    },
+    viewBarPreview: {
         alignItems: 'center',
-
     },
     viewbutton: {
         borderWidth: 2,
@@ -62,13 +77,12 @@ const styles = StyleSheet.create({
     },
     viewButtonProfile: {
         alignSelf: "flex-end",
-        flexDirection: "row",
-        flexWrap: "wrap",
     },
     image: {
         width: 20,
         height: 20,
         alignSelf: "center",
+
 
     },
 });

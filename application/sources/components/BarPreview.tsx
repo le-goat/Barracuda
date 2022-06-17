@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#EAECEA',
         margin: 6,
         borderRadius: 10,
+        alignSelf: "center",
     },
     view2: {
         padding: 20,
