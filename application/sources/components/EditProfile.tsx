@@ -1,8 +1,10 @@
-import React, {FunctionComponent, useState} from "react";
+import React, {FunctionComponent, useEffect, useState} from "react";
 import {getAUser} from "../requests/Read";
 import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {NavigationProp} from "@react-navigation/native";
 import {RootStackParamList} from "../../RootStackParamList";
+import {updateAUser} from "../requests/Update";
+import {deleteAUser} from "../requests/Delete";
 
 type Props = {
     navigation: NavigationProp<RootStackParamList>;
@@ -11,28 +13,39 @@ type Props = {
 
 
 const EditProfile : FunctionComponent<Props> = ({navigation}) => {
-    const data = getAUser('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU1NDA5NjI1LCJleHAiOjE2NTgwMDE2MjV9.4aHhPAsQ5f-AnHDAr7qHeqQ2Dz6GfRD5I5JG2gGKln4');
+    const data = getAUser('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiaWF0IjoxNjU1NDUxNDY5LCJleHAiOjE2NTgwNDM0Njl9.Yj5Amqo13caFZscJm6dyDyxhL2aU4aS9hdfcXb2YXGg');
     const [usernameField, setUsernameField] = useState('');
     const [emailField, setEmailValue] = useState('');
+    const [userId, setUserId] = useState('');
     const [stateTextInput, setStateTextInput] = useState(false)
 
-    // data.then(response => {
-    //     setUsernameField(response.username);
-    //     setEmailValue(response.email)
-    // })
+    useEffect(() => {
+        data.then(response => {
+            setUsernameField(response.username);
+            setEmailValue(response.email);
+            setUserId(response.id);
+            console.log(response.id);
+        })
+    }, []
+    )
+
 
     const EnableTextInput = () => {
         setStateTextInput(true);
     }
+    const Confirm = () => {
+        updateAUser(usernameField, emailField, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiaWF0IjoxNjU1NDUxNDY5LCJleHAiOjE2NTgwNDM0Njl9.Yj5Amqo13caFZscJm6dyDyxhL2aU4aS9hdfcXb2YXGg', userId )
+        navigation.navigate('HomePage')
+    }
+    const Delete = () => {
+        deleteAUser(userId,'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiaWF0IjoxNjU1NDUxNDY5LCJleHAiOjE2NTgwNDM0Njl9.Yj5Amqo13caFZscJm6dyDyxhL2aU4aS9hdfcXb2YXGg')
+        navigation.navigate('Login')
+    }
     return (
         <View
-            style={styles.container}>
-            <TouchableOpacity onPress={EnableTextInput}
-                              style={styles.touchableopacity1}>
-                <Text>
-                    Editer
-                </Text>
-            </TouchableOpacity>
+            style={styles.container}
+        >
+
             <TextInput
                 style={styles.textinput}
                 placeholder="New username"
@@ -48,15 +61,29 @@ const EditProfile : FunctionComponent<Props> = ({navigation}) => {
                 onChangeText={(emailField) => setEmailValue(emailField)}
             />
 
+            <TouchableOpacity onPress={EnableTextInput}
+                              style={styles.touchableopacity1}>
+                <Text>
+                    Editer
+                </Text>
+            </TouchableOpacity>
+
             <TouchableOpacity
                 style={styles.touchableopacity2}
-                onPress={() =>
-                navigation.navigate('HomePage')
-
-            }>
+                onPress={Confirm}
+            >
                 <Text>
-                    Confirmer</Text>
+                    Confirmer
+                </Text>
             </TouchableOpacity>
+
+            <TouchableOpacity
+                style={styles.touchableopacity2}
+                onPress={Delete}
+            >
+                <Text>Supprimer le compte</Text>
+            </TouchableOpacity>
+
         </View>
     )
 

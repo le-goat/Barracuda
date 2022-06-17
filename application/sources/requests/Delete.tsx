@@ -6,7 +6,7 @@
 // DeleteBar(bar_id) -> Supression d'un bar
 import axios from "axios";
 
-export const deleteAUser = (id:number, token:string) => {
+export const deleteAUser = (id:string, token:string) => {
     return axios
         .delete('http://localhost:1337/api/users/' + id, {
             headers:
