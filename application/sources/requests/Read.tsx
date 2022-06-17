@@ -19,7 +19,7 @@ export async function getValueFor(name:string) {
 
 export const loginUser = (user: string, password:string) => {
     return axios
-        .post('http://192.168.208.25:1337/api/auth/local', {
+        .post('http://192.168.43.205:1337/api/auth/local', {
             identifier: user,
             password: password
         })
@@ -35,7 +35,7 @@ export const loginUser = (user: string, password:string) => {
 
 export const getAUser = (token: string) => {
     return axios
-        .get('http://192.168.208.25:1337/api/users/me',{
+        .get('http://192.168.43.205:1337/api/users/me',{
             headers: {
                 Authorization: `Bearer ${token} `,
             },
@@ -50,7 +50,7 @@ export const getAUser = (token: string) => {
 
 export const getBar = (bar_id: number): Promise<Bar> => {
     return axios
-        .get("http://192.168.208.25:1337/api/bars/" + bar_id)
+        .get("http://192.168.43.205:1337/api/bars/" + bar_id)
         .then((response) => {
             return response.data;
         })
@@ -61,7 +61,7 @@ export const getBar = (bar_id: number): Promise<Bar> => {
 
 export const getBars = (): Promise<BarList> => {
     return axios
-        .get("http://localhost:1337/api/bars")
+        .get("http://192.168.43.205:1337/api/bars")
         .then((response) => {
             // console.log(response.data.attributes);
             return response.data;
