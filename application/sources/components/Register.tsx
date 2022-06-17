@@ -17,7 +17,11 @@ const Register : FunctionComponent<Props> = ({navigation}) => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const onPress = () => createAUser(username, email, password)
+    const onPress = () =>
+    {
+        createAUser(username, email, password)
+        navigation.navigate('Login')
+    }
 
 
     return (
@@ -54,7 +58,6 @@ const Register : FunctionComponent<Props> = ({navigation}) => {
                 style={styles.touchableopacity2}
                 onPress={() =>
                 navigation.navigate('Login')
-
             }>
                 <Text
                     style={styles.touchabletext}

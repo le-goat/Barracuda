@@ -7,4 +7,7 @@ export const createAUser = (username:string, email:string, password:string) => {
             email: email,
             password: password,
         })
+        .catch(error => {
+            console.log('An error occurred:', error.response);
+        });
 }
