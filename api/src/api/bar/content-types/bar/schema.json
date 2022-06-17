@@ -37,6 +37,15 @@
       "relation": "manyToMany",
       "target": "api::tag.tag",
       "inversedBy": "bars"
+    },
+    "price": {
+      "type": "integer",
+      "max": 5,
+      "min": 1
+    },
+    "image": {
+      "type": "string",
+      "default": "image_bar.jpg"
     }
   }
 }

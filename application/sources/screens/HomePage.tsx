@@ -8,6 +8,7 @@ import * as React from "react";
 import {RootStackParamList} from "../../RootStackParamList";
 import EditProfile from "../components/EditProfile";
 import BarPreview from "../components/BarPreview";
+import {ResultsList} from "./ResultsList";
 
 type Props = {
     navigation: NavigationProp<RootStackParamList>;
@@ -37,10 +38,7 @@ export const HomePage: FunctionComponent<Props> = ({navigation}) => {
 
 
             <View style={styles.viewBarPreview}>
-                <BarPreview id={1}/>
-                <BarPreview id={1}/>
-                <BarPreview id={1}/>
-
+                <ResultsList/>
             </View>
 
 

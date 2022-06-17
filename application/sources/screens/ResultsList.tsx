@@ -1,30 +1,51 @@
-import {FunctionComponent} from "react";
-import {Button, ScrollView, StyleSheet, View, Text} from "react-native";
-import ResearchButton from "../components/ResearchButton";
-import BarPreview from "../components/BarPreview";
-import {StatusBar} from "expo-status-bar";
-import * as React from "react";
-import {NavigationProp} from "@react-navigation/native";
+// ScrollView, FlatList
+import {Bar, BarList} from "../types/bar";
+import {NavigationProp, useNavigation} from "@react-navigation/native";
 import {RootStackParamList} from "../../RootStackParamList";
+import React, {useEffect} from "react";
+import {getBars} from "../requests/Read";
+import {FlatList, Text, TouchableHighlight, View, StyleSheet} from "react-native";
+import BarPreview from "../components/BarPreview";
+// On a besoin d'une liste d'id de bar pour les afficher en appellant le component BarPreview ou un autre sans image
 
-type Props = {
-    navigation: NavigationProp<RootStackParamList>;
-}
+export const ResultsList = () => {
+    const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+    const [barList, setBarList] = React.useState<BarList>();
+    console.log(barList);
 
-export const ResultsList: FunctionComponent<Props> = ({navigation}) => {
+
+    useEffect(() => {
+        getBars().then((bars) => setBarList(bars));
+    }, [])
+
     return (
-        <ScrollView style={styles.container}>
-            <Text style={styles.header}>Nom du mec, X résultats pour votre recherche :</Text>
+        <View>
+            <FlatList
+                data={barList?.data}
+                renderItem={({item}) => {
+                    const mon_bar : Bar = {
+                        bar_id: item.attributes.bar_id,
+                        name: item.attributes.name,
+                        gps_position: item.attributes.gps_position,
+                        price: item.attributes.price,
+                        Description: item.attributes.Description,
+                        image: item.attributes.image
+                    }
+                    return (
+                        <TouchableHighlight onPress={() => {
+                            navigation.navigate('Bar', {infos: mon_bar})
+                        }}>
+                            <BarPreview {...mon_bar}/>
+                        </TouchableHighlight>
+                    )
+                }
 
-            <BarPreview id={1}/>
-            <BarPreview id={1}/>
-            <BarPreview id={1}/>
-
-        </ScrollView>
-
-
+            }/>
+        </View>
     )
+
 }
+
 
 const styles = StyleSheet.create({
     container: {

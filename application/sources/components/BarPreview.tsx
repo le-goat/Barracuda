@@ -1,54 +1,24 @@
 import {Bar} from "../types/bar";
-import {StyleSheet} from "react-native";
 // Image
 
 // Ici on veut afficher le nom, une image la distance et le prix ?
 
-import {ImageBackground, Text, View} from "react-native";
+import {FlatList, ImageBackground, Text, TouchableHighlight, TouchableOpacity, View, StyleSheet} from "react-native";
 import {getBar} from "../requests/Read";
-import React, {useEffect} from "react";
+import React, {FunctionComponent, useEffect, useState} from "react";
+import {NavigationProp, useNavigation} from "@react-navigation/native";
+import {RootStackParamList} from "../../RootStackParamList";
 
-type Id_bar = {
-    id: number
-}
-
-const BarPreview = ({id}: Id_bar)/* (id_bar: number)*/ => {
-
-    const [barInfo, setBarInfo] = React.useState<Bar>()
-
-    getBar(id).then((bar) => setBarInfo(bar));
-    /*
-        useEffect(() => {
-            getBar(id_bar)
-                .then((bar) => setBarInfo(bar));
-        }, [])
-    */
+const BarPreview = (bar: Bar) => {
 
 
     return (
-        <View
-            style={styles.view1}>
-            <View
-                style={styles.view2}
-                /*data={barInfo}
-                renderItem={({item}) => (
-
-                )}*/
-            >
-
-                <ImageBackground source={require('./../../assets/image_bar.jpg')}
-                                 style={styles.image}/>
-                <Text style={styles.titre}>Nom du bar</Text>
-                <Text style={styles.note}>4.4/5</Text>
-
-                <View style={styles.viewtag}>
-                    <Text style={styles.tag}>bar à chat</Text>
-                    <Text style={styles.tag}>cocktails</Text>
-                    <Text style={styles.tag}>planche apéro</Text>
-                    <Text style={styles.tag}>planche apéro</Text>
-                </View>
-                {/*<Text style={styles.text}>{barInfo?.name}</Text>*/}
-            </View>
+        <View style={{borderWidth: 2, borderStyle: "solid", borderColor: "black", borderRadius: 15}}>
+            <ImageBackground source={require('./../../assets/' + bar.image)}
+                             style={{height: 200, width: 300, borderStyle: "solid", borderRadius: 15}}/>
+            <Text>{bar.name}</Text>
+            <Text>Le prix ou la note</Text>
+            <Text>{bar.Description}</Text>
         </View>
     )
 }

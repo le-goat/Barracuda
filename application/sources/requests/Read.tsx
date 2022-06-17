@@ -1,4 +1,4 @@
-import {Bar} from "../types/bar";
+import {Bar, BarList} from "../types/bar";
 
 // GetBar(bar_id) -> Pour le chargement de la page BarInfos
 
@@ -12,6 +12,8 @@ import {Bar} from "../types/bar";
 
 // LogIn(username, psw) sous forme de Json
 import axios from  'axios';
+import {Tag} from "../types/tag";
+
 
 export const loginUser = (user: string, password:string) => {
     return axios
@@ -44,13 +46,26 @@ export const getAUser = (token: string) => {
         })
 }
 
-export const getBar = (bar_id: number): Promise<Bar> => {
+
+export const getBar = (bar_id: number) => {
     return axios
         .get("http://localhost:1337/api/bars/" + bar_id)
         .then((response) => {
+            console.log(response.data);
             return response.data;
         })
         .catch((error) => {
             console.log('An error occurred:', error.response);
+        })
+}
+
+export const getBars = (): Promise<BarList> => {
+    return axios
+        .get("http://localhost:1337/api/bars")
+        .then((response) => {
+            // console.log(response.data.attributes);
+            return response.data;
+        }).catch((error) => {
+            console.log(error.response)
         })
 }

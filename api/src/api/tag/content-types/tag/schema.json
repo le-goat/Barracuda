@@ -24,7 +24,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::bar.bar",
-      "inversedBy": "tags"
+      "mappedBy": "tags"
     }
   }
 }

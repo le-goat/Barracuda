@@ -1,7 +1,10 @@
+import {Bar} from "./sources/types/bar";
+
 export type RootStackParamList = {
     Login: undefined;
     HomePage: undefined;
     Register: undefined;
-    ResultsList: undefined;
     EditProfile: undefined;
+    Bar: {infos: Bar};
+    // Results: undefined;
 }
