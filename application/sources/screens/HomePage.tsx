@@ -1,4 +1,4 @@
-import {StyleSheet, View, Button, TouchableOpacity, Text} from "react-native";
+import {StyleSheet, View, Button, TouchableOpacity, Text, Image, ImageBackground} from "react-native";
 import ResearchButton from "../components/ResearchButton";
 import {FunctionComponent} from "react";
 import {NavigationProp} from "@react-navigation/native";
@@ -18,15 +18,19 @@ export const HomePage: FunctionComponent<Props> = ({navigation}) => {
 
 
             <ResearchButton/>
+            <View
+                style={styles.viewButtonProfile}>
+                <TouchableOpacity
+                    style={styles.buttonProfile}
+                    onPress={() =>
+                        navigation.navigate('EditProfile')
+                    }
+                >
+                    <ImageBackground source={require('./../../assets/param.png')}
+                                     style={styles.image}/>
 
-            <TouchableOpacity
-                style={styles.buttonProfile}
-                onPress={() =>
-                    navigation.navigate('EditProfile')
-                }
-            >
-                <Text>Modifier le profil</Text>
-            </TouchableOpacity>
+                </TouchableOpacity>
+            </View>
 
 
             <StatusBar style="auto"/>
@@ -49,13 +53,22 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     buttonProfile: {
-        marginTop: 16,
         borderWidth: 2,
-        backgroundColor: '#21B70F',
         paddingVertical: 8,
-        width: 300,
+        width: 50,
         textAlign: "center",
-        borderColor: "#FFFFFF",
+        borderColor: "#21B70F",
         borderRadius: 6,
-    }
+    },
+    viewButtonProfile: {
+        alignSelf: "flex-end",
+        flexDirection: "row",
+        flexWrap: "wrap",
+    },
+    image: {
+        width: 20,
+        height: 20,
+        alignSelf: "center",
+
+    },
 });
