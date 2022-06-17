@@ -19,7 +19,8 @@ export const ResultsList = () => {
     }, [])
 
     return (
-        <ScrollView>
+        <ScrollView nestedScrollEnabled={true} horizontal={true} style={{width: "100%"}}>
+            <View>
             <FlatList
                 data={barList?.data}
                 renderItem={({item}) => {
@@ -42,6 +43,7 @@ export const ResultsList = () => {
                 }
 
             }/>
+            </View>
         </ScrollView>
     )
 

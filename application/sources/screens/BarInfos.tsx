@@ -12,11 +12,12 @@ type Props = {
 
 
 const Bar = ({route}: Props) => {
+    const image : string = route.params.infos.image;
     return (
         <View style={styles.view}>
-            <Text style={styles.titre}> Fiche du bar : {route.params.infos.name}</Text>
-            <ImageBackground source={require('./../../assets/' + route.params.infos.image)}
+            <ImageBackground source={require('./../../assets/image_bar.jpg'/* + image*/)}
                              style={styles.image}/>
+            <Text style={styles.titre}> Fiche du bar : {route.params.infos.name}</Text>
             <Text style={styles.resume}>{route.params.infos.Description}</Text>
             {/*<Text>{route.params.infos.gps_position}</Text>*/}
             <Text style={styles.price}>Gamme de prix : {route.params.infos.price}/5</Text>

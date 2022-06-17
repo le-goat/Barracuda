@@ -3,7 +3,16 @@ import {Bar} from "../types/bar";
 
 // Ici on veut afficher le nom, une image la distance et le prix ?
 
-import {FlatList, ImageBackground, Text, TouchableHighlight, TouchableOpacity, View, StyleSheet} from "react-native";
+import {
+    FlatList,
+    ImageBackground,
+    Text,
+    TouchableHighlight,
+    TouchableOpacity,
+    View,
+    StyleSheet,
+    Image
+} from "react-native";
 import {getBar} from "../requests/Read";
 import React, {FunctionComponent, useEffect, useState} from "react";
 import {NavigationProp, useNavigation} from "@react-navigation/native";
@@ -11,16 +20,18 @@ import {RootStackParamList} from "../../RootStackParamList";
 
 const BarPreview = (bar: Bar) => {
 
+    const image : string = bar.image;
 
     return (
         <View style={styles.view2}>
             <View style={styles.view1}>
-                <ImageBackground source={require('./../../assets/' + bar.image)}
+                <ImageBackground source={require('./../../assets/image_bar.jpg'/* + bar.image*/)}
                                  style={styles.image}/>
                 <Text style={styles.titre}>
                     {bar.name}
                 </Text>
-                <Text style={styles.prix}>Le prix ou la note</Text>
+
+                <Text style={styles.prix}>{bar.price}</Text>
             </View>
         </View>
     )
