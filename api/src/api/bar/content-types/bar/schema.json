@@ -18,14 +18,6 @@
     "gps_position": {
       "type": "json"
     },
-    "contact": {
-      "type": "enumeration",
-      "enum": [
-        "telephone",
-        "mail",
-        "adresse"
-      ]
-    },
     "bar_id": {
       "type": "uid"
     },
@@ -46,6 +38,9 @@
     "image": {
       "type": "string",
       "default": "image_bar.jpg"
+    },
+    "contact": {
+      "type": "richtext"
     }
   }
 }

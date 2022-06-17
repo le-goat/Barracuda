@@ -4,7 +4,8 @@ export type Bar = {
     gps_position: object,
     price: number,
     Description: string,
-    image: string
+    image: string,
+    contact: string,
     // Tags
 }
 

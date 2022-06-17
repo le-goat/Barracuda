@@ -4,7 +4,7 @@ import {NavigationProp, useNavigation} from "@react-navigation/native";
 import {RootStackParamList} from "../../RootStackParamList";
 import React, {useEffect} from "react";
 import {getBars} from "../requests/Read";
-import {FlatList, Text, TouchableHighlight, View, StyleSheet} from "react-native";
+import {FlatList, Text, TouchableHighlight, View, StyleSheet, ScrollView} from "react-native";
 import BarPreview from "../components/BarPreview";
 // On a besoin d'une liste d'id de bar pour les afficher en appellant le component BarPreview ou un autre sans image
 
@@ -19,7 +19,7 @@ export const ResultsList = () => {
     }, [])
 
     return (
-        <View>
+        <ScrollView>
             <FlatList
                 data={barList?.data}
                 renderItem={({item}) => {
@@ -29,7 +29,8 @@ export const ResultsList = () => {
                         gps_position: item.attributes.gps_position,
                         price: item.attributes.price,
                         Description: item.attributes.Description,
-                        image: item.attributes.image
+                        image: item.attributes.image,
+                        contact: item.attributes.contact
                     }
                     return (
                         <TouchableHighlight onPress={() => {
@@ -41,7 +42,7 @@ export const ResultsList = () => {
                 }
 
             }/>
-        </View>
+        </ScrollView>
     )
 
 }
