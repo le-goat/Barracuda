@@ -13,12 +13,15 @@ const BarPreview = (bar: Bar) => {
 
 
     return (
-        <View style={{borderWidth: 2, borderStyle: "solid", borderColor: "black", borderRadius: 15}}>
-            <ImageBackground source={require('./../../assets/' + bar.image)}
-                             style={{height: 200, width: 300, borderStyle: "solid", borderRadius: 15}}/>
-            <Text>{bar.name}</Text>
-            <Text>Le prix ou la note</Text>
-            <Text>{bar.Description}</Text>
+        <View style={styles.view2}>
+            <View style={styles.view1}>
+                <ImageBackground source={require('./../../assets/' + bar.image)}
+                                 style={styles.image}/>
+                <Text style={styles.titre}>
+                    {bar.name}
+                </Text>
+                <Text style={styles.prix}>Le prix ou la note</Text>
+            </View>
         </View>
     )
 }
@@ -29,21 +32,18 @@ const styles = StyleSheet.create({
         margin: 6,
         borderRadius: 10,
         alignSelf: "center",
+        padding: 5,
     },
     view2: {
-        padding: 20,
+        padding: 10,
         width: '100%',
     },
-    tag: {
+    prix: {
         fontSize: 16,
         backgroundColor: '#D1D1D1',
         textAlign: "center",
         width: '30%',
         margin: 4,
-    },
-    viewtag: {
-        flexDirection: "row",
-        flexWrap: "wrap",
     },
     titre: {
         fontSize: 24,
@@ -59,9 +59,9 @@ const styles = StyleSheet.create({
         borderRadius: 32,
     },
     image: {
-        width: '100%',
-        height: 200,
-        alignSelf: "center"
+        width: 400,
+        height: 150,
+        alignSelf: "center",
     }
 })
 
