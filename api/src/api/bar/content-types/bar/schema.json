@@ -18,17 +18,8 @@
     "gps_position": {
       "type": "json"
     },
-    "bar_id": {
-      "type": "uid"
-    },
     "Description": {
       "type": "richtext"
-    },
-    "tags": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::tag.tag",
-      "inversedBy": "bars"
     },
     "price": {
       "type": "integer",
