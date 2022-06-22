@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const updateAUser = (newUsername:string, newEmail:string, id:string, token:string) => {
+export const updateAUser = (newUsername:string, newEmail:string, token:string, id:string) => {
     return axios
-        .put('http://192.168.208.25:1337/api/users/' + id, {
+        .put('http://192.168.43.205:1337/api/users/' + id, {
             headers: {
                 Authorization:`Bearer ${token}`,
             },

@@ -1,7 +1,7 @@
 import {StyleSheet, View, TouchableOpacity, ImageBackground} from "react-native";
 import ResearchButton from "../components/ResearchButton";
 import {FunctionComponent} from "react";
-import {NavigationProp} from "@react-navigation/native";
+import {NavigationProp, useNavigation} from "@react-navigation/native";
 import {StatusBar} from "expo-status-bar";
 import * as React from "react";
 import {RootStackParamList} from "../../RootStackParamList";
@@ -12,7 +12,9 @@ type Props = {
     navigation: NavigationProp<RootStackParamList>;
 }
 
-export const HomePage: FunctionComponent<Props> = ({navigation}) => {
+export const HomePage/*: FunctionComponent<Props>*/ = (/*{navigation}*/) => {
+    const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+
     return (
         <View style={styles.container}>
 
